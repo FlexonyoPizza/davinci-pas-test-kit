@@ -7,10 +7,8 @@ module DaVinciPASTestKit
       ATTESTATION_TITLE = 'Health IT module does not set additional expectations for data elements'.freeze
       title ATTESTATION_TITLE
       description %(
-        During this test, the tester will confirm that the Health IT module does not treat omitted optional data
-        elements as conformance errors, uses standard PAS data elements to convey the information they are
-        intended to convey, and does not publish guidance setting additional expectations for where data elements
-        are conveyed.
+        During this test, the tester will confirm that the Health IT module does not set additional expectations
+        for data elements beyond what is required by PAS.
         To see the specifics of the attested requirements, click the "View Specification Requirements" link for this
         test.
       )
@@ -22,11 +20,8 @@ module DaVinciPASTestKit
       input :data_element_expectations_attestation,
             title: ATTESTATION_TITLE,
             description: %(
-              I attest that the Health IT module does not treat omitted optional data elements as conformance
-              errors, uses standard PAS data elements (those found within PAS-defined or inherited profiles and
-              marked as mandatory or mustSupport) to convey the information they are intended to convey, and that
-              my organization does not publish guidance setting additional expectations for where data elements
-              are conveyed within PAS and inherited data structures.
+              I attest that the Health IT module does not set additional expectations for
+              data elements beyond what is required by PAS.
             ),
             type: 'radio',
             default: 'false',

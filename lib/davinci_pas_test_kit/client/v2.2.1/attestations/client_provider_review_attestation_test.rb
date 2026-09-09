@@ -8,10 +8,8 @@ module DaVinciPASTestKit
                           'submitting'.freeze
       title ATTESTATION_TITLE
       description %(
-        During this test, the tester will confirm that the Health IT module permits provider review of data prior
-        to transmission without requiring it, giving the provider (or their designated agent) the ability to
-        review patient information and, where appropriate, amend or withhold the submission, while also allowing
-        the provider to turn that review off.
+        During this test, the tester will confirm that the Health IT module allows but does not require providers
+        to review information before submitting.
         To see the specifics of the attested requirements, click the "View Specification Requirements" link for this
         test.
       )
@@ -22,10 +20,8 @@ module DaVinciPASTestKit
       input :provider_review_attestation,
             title: ATTESTATION_TITLE,
             description: %(
-              I attest that the Health IT module permits provider review of data prior to transmission without
-              requiring it, giving the provider (or their designated agent) the ability to review patient
-              information and, where appropriate, amend or withhold the submission, and that the provider can
-              choose to turn off the ability to review documentation.
+              I attest that the Health IT module allows but does not require providers to review information
+              before submitting.
             ),
             type: 'radio',
             default: 'false',
