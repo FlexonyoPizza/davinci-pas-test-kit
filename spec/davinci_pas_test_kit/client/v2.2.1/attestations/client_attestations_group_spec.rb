@@ -24,8 +24,14 @@ RSpec.describe DaVinciPASTestKit::DaVinciPASV221::PASClientAttestationsGroup, :r
   end
 
   it 'has one test per unique attestation title' do
-    expect(group.tests.length).to eq(5)
-    expect(group.tests.map(&:title).uniq.length).to eq(5)
+    expect(group.tests.length).to eq(2)
+    expect(group.tests.map(&:title).uniq.length).to eq(2)
+  end
+
+  it 'covers each attestation requirement exactly once' do
+    covered = group.tests.flat_map(&:verifies_requirements).map(&:to_s)
+
+    expect(covered).to match_array(expected_requirements)
   end
 
   describe 'each attestation test' do
@@ -53,7 +59,7 @@ RSpec.describe DaVinciPASTestKit::DaVinciPASV221::PASClientAttestationsGroup, :r
                                "#{test.title} description does not point at the requirements"
         expect(input_description).to start_with('I attest that'),
                                      "#{test.title} input description does not open with 'I attest that'"
-        expect(input_description).to_not match(%r{https://}),
+        expect(input_description).to_not include('https://'),
                                          "#{test.title} input description should not contain links"
       end
     end
